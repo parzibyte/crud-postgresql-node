@@ -7,13 +7,11 @@ router.get('/', function (req, res, next) {
     productosModel
         .obtener()
         .then(productos => {
-            console.log(productos);
             res.render("productos/ver", {
                 productos: productos,
             });
         })
         .catch(err => {
-            console.log(err);
             return res.status(500).send("Error obteniendo productos");
         });
 
